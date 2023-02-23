@@ -1,16 +1,23 @@
-
 import { Sequelize } from "sequelize";
-import { config } from "dotenv";
-import User from "./models/User";
-import { truncate } from "fs";
+import { config } from "dotenv"
+
 
 
 config();
 
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_PORT } = process.env;
 
+// export const sequelize = new Sequelize(
+//   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/ecomerce`,
+//   {
+//     host: DB_PORT,
+//     dialect: "postgres",
+//     native: false,
+//     logging: false,
+//   }
+// );
 export const sequelize = new Sequelize(
-  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/ecomerce`,
+  process.env.DB_DEPLOY!,
   {
     host: DB_PORT,
     dialect: "postgres",
@@ -18,6 +25,7 @@ export const sequelize = new Sequelize(
     logging: false,
   }
 );
+
 
 (async function authenticate() {
   try {

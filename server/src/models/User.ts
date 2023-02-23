@@ -4,8 +4,7 @@ class User extends Model {
     public id!: string;
     public name!: string;
     public email!: string;
-    public roll?: string;
-    public deleted?: string;
+  
    
 }
 User.init(
@@ -24,16 +23,6 @@ User.init(
       type: DataTypes.STRING, //  contacto del usuario
       allowNull: false,
     },
-    rol: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false,
-    },
-    deleted: {
-      //borrado logico
-      type: DataTypes.BOOLEAN,
-      defaultValue: false,
-    },
-   
   },
   {
     timestamps: false,
