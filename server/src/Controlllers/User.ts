@@ -27,7 +27,7 @@ export const postuser = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
-// 
+
 
 // {
 //     "email" : "alex.des.d@gmail.com",
